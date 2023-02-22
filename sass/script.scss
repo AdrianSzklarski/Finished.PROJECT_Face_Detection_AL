@@ -1,0 +1,80 @@
+@use './_colors.scss' as c;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+nav {
+    z-index: 2;
+
+    .nav-color {
+        background-color: aqua;
+    }
+
+    .logo_color {
+        color: c.$main-color;
+        font-weight: bold;
+    }
+
+    .nav-text {
+        text-transform: uppercase;
+        font-size: 16px;
+        color: c.$whit-color;
+    }
+
+    .navbar-brand {
+        color: c.$whit-color;
+    }
+
+    .fa-solid {
+        color: c.$whit-color;
+        padding: 10px;
+    }
+
+    .nav-link:hover {
+        color: c.$main-color;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border: 2px solid c.$main-color;
+    }
+
+    .btn-search {
+        border: 2px solid c.$main-color;
+    }
+}
+
+header {
+    .hero-img {
+        position: relative;
+        height: 100vh;
+        background-image: url('../img/wallpaper_1920.jpg');
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: -10;
+
+    }
+
+    .hero-shadow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: c.$shad-color;
+    }
+}

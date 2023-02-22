@@ -11,3 +11,13 @@
 # Process finished with exit code 0
 
 # I have to run app form termial: streamlit run camera_strem.py
+
+
+# $ pip install --upgrade streamlit
+# $ streamlit hello
+
+# https://towardsdatascience.com/coding-ml-tools-like-you-code-ml-models-ddba3357eace
+# https://docs.opencv.org/4.x/db/d28/tutorial_cascade_classifier.html
+
+
+
