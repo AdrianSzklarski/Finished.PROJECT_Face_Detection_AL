@@ -5,5 +5,5 @@ The following application is used for face detection.
 
 ## Under construction 
 
-## Created by Adrian Szklarski, start time 01.2023
+## Created by Adrian Szklarski, start time 02.2023
 
