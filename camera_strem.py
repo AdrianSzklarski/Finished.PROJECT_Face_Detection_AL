@@ -8,6 +8,10 @@ class CameraStrem:
         self.video_source = camera  # commit 1
         self.capture = CaptureAvi(self.video_source)
 
+        # Create Canvas for *.*avi
+        self.canvas = tk.Canvas(self.root, width=self.capture.width, height=self.capture.height)
+        self.canvas.pack()
+
         self.get_set_window()
 
     def get_set_window(self):
