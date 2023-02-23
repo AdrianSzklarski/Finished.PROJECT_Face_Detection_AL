@@ -1,6 +1,7 @@
 import tkinter as tk
 import logging as logger
 import cv2
+from datetime import datetime
 
 
 class CameraStrem:
@@ -28,6 +29,7 @@ class CaptureAvi:
             raise ValueError("Attention, video failed to open", camera)
 
         self.get_dimensions()
+
     def get_dimensions(self):
         '''Download window dimensions *.*avi'''
         self.width = self.capture.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -44,6 +46,31 @@ class CaptureAvi:
         # https://zetcode.com/python/logging/
         logger.basicConfig(filename='infoCamera.log', level=logger.INFO)
 
+        # open camera
+        if self.capture.isOpened():
+            # https://pythonprogramming.net/loading-video-python-opencv-tutorial/
+            self.ret, self.frame = self.capture.read()
+            gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+            if self.ret:
+                # https://opencv-tutorial.readthedocs.io/en/latest/face/face.html
+                faces = self.classifier.detectMultiScale(
+                    gray,
+                    scaleFactor=1.1,
+                    minNeighbors=5,
+                    minSize=(30, 30)
+                )
+                for (x, y, w, h) in faces:
+                    # https://docs.opencv.org/4.x/dc/da5/tutorial_py_drawing_functions.html
+                    cv2.rectangle(self.frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                    anterior = 0
+                    if anterior != len(faces):
+                        logger.info("faces: " + str(len(faces)) + " at " + str(datetime.now()))
+
+                    return (self.ret, cv2.cvtColor(self.frame, cv2.COLOR_BGR2RGB))
+                else:
+                    return (self.ret, None)
+            else:
+                return (self.ret, None)
 
 
 # Test run, after delete
