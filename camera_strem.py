@@ -6,13 +6,14 @@ class CameraStrem:
     def __init__(self, root, camera=0):
         self.root = root
         self.video_source = camera  # commit 1
+        self.capture = CaptureAvi(self.video_source)
 
         self.get_set_window()
 
     def get_set_window(self):
         '''Set window of *.*avi'''
         self.root.title("Face Detection create by A.Szklarski 02.2023")
-        self.root.geometry('800x640')
+        self.root.geometry('640x480')
 
 
 class CaptureAvi:
@@ -20,6 +21,13 @@ class CaptureAvi:
         self.capture = cv2.VideoCapture(camera)  # commit 2
         if not self.capture.isOpened():
             raise ValueError("Attention, video failed to open", camera)
+
+        self.get_dimensions()
+    def get_dimensions(self):
+        '''Download window dimensions *.*avi'''
+        self.width = self.capture.get(cv2.CAP_PROP_FRAME_WIDTH)
+        self.height = self.capture.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        print(self.width, self.height)  # test information
 
 
 # Test run, after delete
