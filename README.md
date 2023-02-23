@@ -7,3 +7,9 @@ The following application is used for face detection.
 
 ## Created by Adrian Szklarski, start time 02.2023
 
+<br>
+<img src="images/app.png" alt="OlxPage">
+<br>
+
+<p style="text-align: center">First preview version of the application (in progress) </p>
+
