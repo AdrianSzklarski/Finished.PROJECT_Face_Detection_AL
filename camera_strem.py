@@ -33,6 +33,10 @@ class CaptureAvi:
         self.height = self.capture.get(cv2.CAP_PROP_FRAME_HEIGHT)
         print(self.width, self.height)  # test information
 
+    def get_frames(self):
+        '''Video opening, image analysis'''
+        self.dataXML = "data.xml"
+
 
 # Test run, after delete
 if __name__ == '__main__':
