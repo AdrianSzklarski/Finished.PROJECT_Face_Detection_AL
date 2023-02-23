@@ -1,4 +1,5 @@
 import tkinter as tk
+import logging as logger
 import cv2
 
 
@@ -36,6 +37,13 @@ class CaptureAvi:
     def get_frames(self):
         '''Video opening, image analysis'''
         self.dataXML = "data.xml"
+
+        # https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
+        self.classifier = cv2.CascadeClassifier(self.dataXML)
+
+        # https://zetcode.com/python/logging/
+        logger.basicConfig(filename='infoCamera.log', level=logger.INFO)
+
 
 
 # Test run, after delete
