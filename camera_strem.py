@@ -18,6 +18,8 @@ class CameraStrem:
 class CaptureAvi:
     def __init__(self, camera=0):
         self.capture = cv2.VideoCapture(camera)  # commit 2
+        if not self.capture.isOpened():
+            raise ValueError("Attention, video failed to open", camera)
 
 
 # Test run, after delete
