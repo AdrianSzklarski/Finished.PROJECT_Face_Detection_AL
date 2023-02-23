@@ -2,6 +2,15 @@ import tkinter as tk
 import logging as logger
 import cv2
 from datetime import datetime
+import PIL.Image, PIL.ImageTk
+
+import tkinter as tk
+import cv2
+import PIL.Image, PIL.ImageTk
+import time
+import logging as log
+import datetime as dt
+import moviepy.editor as moviepy
 
 
 class CameraStrem:
@@ -15,6 +24,7 @@ class CameraStrem:
         self.canvas.pack()
 
         self.get_set_window()
+
 
     def get_set_window(self):
         '''Set window of *.*avi'''
@@ -71,6 +81,10 @@ class CaptureAvi:
                     return (self.ret, None)
             else:
                 return (self.ret, None)
+
+    def __del__(self):
+        if self.capture.isOpened():
+            self.capture.release()
 
 
 # Test run, after delete
