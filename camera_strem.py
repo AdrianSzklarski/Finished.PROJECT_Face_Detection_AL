@@ -1,9 +1,10 @@
 import logging as logger
-from datetime import datetime
 import PIL.Image, PIL.ImageTk
 import tkinter as tk
-import cv2, os, time
+import cv2, time, webbrowser
 import PIL.Image, PIL.ImageTk
+
+from datetime import datetime
 from module.mp4 import mp4
 
 
@@ -29,7 +30,9 @@ class CameraStrem:
         self.update()
 
     def get_exit(self):
+        webbrowser.open("http://127.0.0.1:5500/index.html")
         exit()
+
 
     def get_set_window(self):
         '''Set window of *.*avi'''
@@ -63,6 +66,7 @@ class CameraStrem:
             cv2.imshow('Streaming Video', bgr)
             if cv2.waitKey(1) & 0xFF == ord('a'):
                 break
+
 
 class CaptureAvi:
     def __init__(self, camera=0):
@@ -118,11 +122,6 @@ class CaptureAvi:
             self.capture.release()
 
 
-# Test run, after delete
-if __name__ == '__main__':
-    app = tk.Tk()
-    CameraStrem(app)
-    app.mainloop()
 #  My commits:
 
 #  no 1:
