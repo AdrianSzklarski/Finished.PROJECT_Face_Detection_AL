@@ -71,4 +71,15 @@ header .hero-shadow .list {
   margin-left: 60%;
   font-size: 14px;
   color: white;
+}
+header .fa-brands {
+  color: royalblue;
+  scale: 150%;
+  z-index: -3;
+}
+header .foot {
+  margin-top: 5%;
+  margin-left: 35%;
+  font-size: 24px;
+  color: royalblue;
 }/*# sourceMappingURL=script.css.map */

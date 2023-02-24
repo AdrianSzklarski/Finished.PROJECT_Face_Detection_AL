@@ -67,7 +67,6 @@ header {
         background-position: center;
         background-size: cover;
         background-attachment: fixed;
-
     }
 
     .hero-shadow {
@@ -87,4 +86,18 @@ header {
         font-size: 14px;
         color: c.$whit-color;
     }
+
+    .fa-brands {
+        color: c.$blue-color;
+        scale: 150%;
+        z-index: -3;
+    }
+
+    .foot {
+        margin-top: 5%;
+        margin-left: 35%;
+        font-size: 24px;
+        color: c.$blue-color;
+    }
 }
+
