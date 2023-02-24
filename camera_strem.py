@@ -24,13 +24,16 @@ class CameraStrem:
         self.canvas = tk.Canvas(self.root, width=self.capture.width, height=self.capture.height)
         self.canvas.pack()
 
+        # Create snapshot button
+        self.btn_snapshot = tk.Button(self.root, text="Snapshot", width=30, command=self.snapshot)
+        self.btn_snapshot.pack(anchor=tk.CENTER, expand=True)
+
         self.get_set_window()
         self.update()
 
     def get_set_window(self):
         '''Set window of *.*avi'''
         self.root.title("Face Detection create by A.Szklarski 02.2023")
-        self.root.geometry('640x480')
 
     def update(self):
         # Get a frame from the video source
@@ -41,6 +44,13 @@ class CameraStrem:
             self.canvas.create_image(0, 0, image=self.photo, anchor=tk.NW)
 
         self.root.after(self.delay, self.update)
+
+    def snapshot(self):
+        # Get a frame from the video source
+        ret, frame = self.capture.get_frames()
+
+        if ret:
+            cv2.imwrite("frame-" + time.strftime("%d-%m-%Y-%H-%M-%S") + ".jpg", cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
 
 
 class CaptureAvi:
