@@ -2,11 +2,9 @@ import logging as logger
 from datetime import datetime
 import PIL.Image, PIL.ImageTk
 import tkinter as tk
-import cv2
+import cv2, os, time
 import PIL.Image, PIL.ImageTk
-import time
-
-
+from module.mp4 import mp4
 
 
 class CameraStrem:
@@ -38,9 +36,8 @@ class CameraStrem:
         self.root.title("Face Detection create by A.Szklarski 02.2023")
 
     def update(self):
-        # Get a frame from the video source
+        '''Get a frame from the video source'''
         ret, frame = self.capture.get_frames()
-
         if ret:
             self.photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(frame))
             self.canvas.create_image(0, 0, image=self.photo, anchor=tk.NW)
@@ -48,13 +45,14 @@ class CameraStrem:
         self.root.after(self.delay, self.update)
 
     def snapshot(self):
-        # Get a frame from the video source
+        '''Get a snapshot'''
         ret, frame = self.capture.get_frames()
-
         if ret:
             cv2.imwrite("frame-" + time.strftime("%d-%m-%Y-%H-%M-%S") + ".jpg", cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
+            mp4()
 
     def get_save(self):
+        '''Save video to *.*avi file'''
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         out = cv2.VideoWriter('avi/fecedetection.avi', fourcc, 20.0, (640, 480))
 
@@ -62,7 +60,7 @@ class CameraStrem:
             ret, frame = self.capture.get_frames()
             bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             out.write(bgr)
-            cv2.imshow('Original', bgr)
+            cv2.imshow('Streaming Video', bgr)
             if cv2.waitKey(1) & 0xFF == ord('a'):
                 break
 

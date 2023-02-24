@@ -20,4 +20,7 @@
 # https://docs.opencv.org/4.x/db/d28/tutorial_cascade_classifier.html
 
 
+# Getting "TypeError: must be real number, not NoneType" whenever trying to run write_videofile to a clip in moviepy
+# pip install moviepy --upgrade
+
 
