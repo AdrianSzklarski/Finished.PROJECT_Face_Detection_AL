@@ -49,9 +49,10 @@ class CameraStrem:
 
     def snapshot(self):
         '''Get a snapshot'''
+        save_link = r'/home/adrian/Pulpit/GitHub_Public/Dectenion_face/photos_of_camera/'
         ret, frame = self.capture.get_frames()
         if ret:
-            cv2.imwrite("frame-" + time.strftime("%d-%m-%Y-%H-%M-%S") + ".jpg", cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
+            cv2.imwrite(save_link + time.strftime("%d-%m-%Y-%H-%M-%S") + ".jpg", cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
             mp4()
 
     def get_save(self):
