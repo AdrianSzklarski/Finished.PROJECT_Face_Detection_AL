@@ -76,7 +76,7 @@ header .fa-brands {
   margin-left: 1%;
   color: royalblue;
   scale: 150%;
-  z-index: -3;
+  z-index: 3;
 }
 header .list {
   width: 50%;
