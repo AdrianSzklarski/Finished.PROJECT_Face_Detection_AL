@@ -88,9 +88,19 @@ header {
     }
 
     .fa-brands {
+        margin-left: 1%;
         color: c.$blue-color;
         scale: 150%;
         z-index: -3;
+    }
+
+    .list {
+        width: 50%;
+        height: 50%;
+    }
+
+    .log {
+        margin-left: 9%;
     }
 
     .foot {
