@@ -1,0 +1,1 @@
+print([line.strip() for line in open("/home/adrian/Pulpit/GitHub_Public/Dectenion_face/infoCamera.log")])

@@ -130,3 +130,4 @@ class CaptureAvi:
 than one connected. By default, 0 is your primary. if I had two cameras, my index = 1'''
 
 #  no 2: define a video capture object
+

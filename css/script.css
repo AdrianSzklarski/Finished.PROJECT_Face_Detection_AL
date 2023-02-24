@@ -65,4 +65,10 @@ header .hero-shadow {
 }
 header .hero-shadow .avi {
   z-index: 0;
+}
+header .hero-shadow .list {
+  margin-top: -43%;
+  margin-left: 60%;
+  font-size: 14px;
+  color: white;
 }/*# sourceMappingURL=script.css.map */

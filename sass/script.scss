@@ -20,6 +20,7 @@ h2 {
 
 nav {
     z-index: 1;
+
     .nav-color {
         background-color: aqua;
     }
@@ -78,5 +79,13 @@ header {
 
     .hero-shadow .avi {
         z-index: 0;
+    }
+
+    .hero-shadow .list {
+        position: absolute;
+        margin-top: -43%;
+        margin-left: 60%;
+        font-size: 14px;
+        color: c.$whit-color;
     }
 }
