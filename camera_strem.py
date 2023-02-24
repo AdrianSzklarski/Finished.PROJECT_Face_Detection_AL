@@ -16,6 +16,7 @@ import moviepy.editor as moviepy
 class CameraStrem:
     def __init__(self, root, camera=0):
         self.root = root
+        self.delay = 15
         self.video_source = camera  # commit 1
         self.capture = CaptureAvi(self.video_source)
 
@@ -24,12 +25,22 @@ class CameraStrem:
         self.canvas.pack()
 
         self.get_set_window()
-
+        self.update()
 
     def get_set_window(self):
         '''Set window of *.*avi'''
         self.root.title("Face Detection create by A.Szklarski 02.2023")
         self.root.geometry('640x480')
+
+    def update(self):
+        # Get a frame from the video source
+        ret, frame = self.capture.get_frames()
+
+        if ret:
+            self.photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(frame))
+            self.canvas.create_image(0, 0, image=self.photo, anchor=tk.NW)
+
+        self.root.after(self.delay, self.update)
 
 
 class CaptureAvi:
@@ -44,10 +55,10 @@ class CaptureAvi:
         '''Download window dimensions *.*avi'''
         self.width = self.capture.get(cv2.CAP_PROP_FRAME_WIDTH)
         self.height = self.capture.get(cv2.CAP_PROP_FRAME_HEIGHT)
-        print(self.width, self.height)  # test information
 
     def get_frames(self):
         '''Video opening, image analysis'''
+        anterior = 0
         self.dataXML = "data.xml"
 
         # https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
@@ -72,7 +83,6 @@ class CaptureAvi:
                 for (x, y, w, h) in faces:
                     # https://docs.opencv.org/4.x/dc/da5/tutorial_py_drawing_functions.html
                     cv2.rectangle(self.frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                    anterior = 0
                     if anterior != len(faces):
                         logger.info("faces: " + str(len(faces)) + " at " + str(datetime.now()))
 
@@ -89,10 +99,9 @@ class CaptureAvi:
 
 # Test run, after delete
 if __name__ == '__main__':
-    root = tk.Tk()
-    CameraStrem(root)
-    root.mainloop()
-
+    app = tk.Tk()
+    CameraStrem(app)
+    app.mainloop()
 #  My commits:
 
 #  no 1:
