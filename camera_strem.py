@@ -121,7 +121,6 @@ class CaptureAvi:
         if self.capture.isOpened():
             self.capture.release()
 
-
 #  My commits:
 
 #  no 1:
