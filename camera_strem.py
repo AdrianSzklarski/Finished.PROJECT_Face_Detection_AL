@@ -1,16 +1,12 @@
-import tkinter as tk
 import logging as logger
-import cv2
 from datetime import datetime
 import PIL.Image, PIL.ImageTk
-
 import tkinter as tk
 import cv2
 import PIL.Image, PIL.ImageTk
 import time
-import logging as log
-import datetime as dt
-import moviepy.editor as moviepy
+
+
 
 
 class CameraStrem:
@@ -27,9 +23,15 @@ class CameraStrem:
         # Create snapshot button
         self.btn_snapshot = tk.Button(self.root, text="Snapshot", width=30, command=self.snapshot)
         self.btn_snapshot.pack(anchor=tk.CENTER, expand=True)
+        self.btn_exit = tk.Button(self.root, text="Exit", width=30, command=self.get_exit)
+        self.btn_exit.pack(anchor=tk.CENTER, expand=True)
 
         self.get_set_window()
+        self.get_save()
         self.update()
+
+    def get_exit(self):
+        exit()
 
     def get_set_window(self):
         '''Set window of *.*avi'''
@@ -52,6 +54,17 @@ class CameraStrem:
         if ret:
             cv2.imwrite("frame-" + time.strftime("%d-%m-%Y-%H-%M-%S") + ".jpg", cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
 
+    def get_save(self):
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        out = cv2.VideoWriter('avi/fecedetection.avi', fourcc, 20.0, (640, 480))
+
+        while True:
+            ret, frame = self.capture.get_frames()
+            bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            out.write(bgr)
+            cv2.imshow('Original', bgr)
+            if cv2.waitKey(1) & 0xFF == ord('a'):
+                break
 
 class CaptureAvi:
     def __init__(self, camera=0):

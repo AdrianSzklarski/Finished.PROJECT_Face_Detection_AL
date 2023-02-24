@@ -1,4 +1,5 @@
 import tkinter as tk
+from module.mp4 import mp4
 
 '''Face detection is a computer technology used in many applications that identifies 
 human faces in digital images. Face detection also refers to the psychological process 
@@ -9,5 +10,8 @@ from camera_strem import CameraStrem
 
 if __name__ == '__main__':
     root = tk.Tk()
-    CameraStrem(root)
+    if True:
+        CameraStrem(root)
+    else:
+        mp4()
     root.mainloop()
