@@ -23,4 +23,7 @@
 # Getting "TypeError: must be real number, not NoneType" whenever trying to run write_videofile to a clip in moviepy
 # pip install moviepy --upgrade
 
+# cv2.error: OpenCV(4.7.0) /io/opencv/modules/imgproc/src/color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'
+#  pip install moviepy --upgrade and delete manula all avi films from dir avi
+
 
