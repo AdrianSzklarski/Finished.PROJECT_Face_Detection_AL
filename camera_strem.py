@@ -38,9 +38,12 @@ class CameraStrem:
         '''ret, frame = self.capture.get_frames()
         Data injection function for recording, eliminating None type
         from downloading camera data :)'''
-        while True:
-            ret, frame = self.capture.get_frames()
-            return frame
+        link = r'/home/adrian/Pulpit/GitHub_Public/Dectenion_face/save_data/xy.txt'
+        with open(link, 'w') as f:
+            while True:
+                ret, frame = self.capture.get_frames()
+                f.writelines(str(frame))
+                return frame
 
     def get_set_window(self):
         '''Set window of *.*avi'''
