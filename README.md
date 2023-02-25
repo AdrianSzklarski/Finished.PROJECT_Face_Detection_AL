@@ -4,7 +4,6 @@ Face detection is a computer technology used in many applications that identifie
 
 In the application, I wrote the **'Backend'** as well as the **'Frontend'** code on my own using appropriate programming libraries. 
 
-## Under construction 
 
 ## Created by Adrian Szklarski, start time 02.2023
 
