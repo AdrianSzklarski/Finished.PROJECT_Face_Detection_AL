@@ -53,6 +53,8 @@
             break'''
 # Muszę to oprogramować !
 
+# W razie problemów CAMERA = 0 reset na -0!
+
 
 
 

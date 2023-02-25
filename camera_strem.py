@@ -7,8 +7,11 @@ import PIL.Image, PIL.ImageTk
 from datetime import datetime
 from module.mp4 import mp4
 
+CAMERA = 0
+
+
 class CameraStrem:
-    def __init__(self, root, camera=0):
+    def __init__(self, root, camera=CAMERA):
         self.root = root
         self.delay = 15
         self.video_source = camera  # commit 1
@@ -29,7 +32,6 @@ class CameraStrem:
         self.update()
         self.get_frame()
 
-
     def get_exit(self):
         webbrowser.open("http://127.0.0.1:5500/index.html")
         exit()
@@ -38,7 +40,7 @@ class CameraStrem:
         '''ret, frame = self.capture.get_frames()
         Data injection function for recording, eliminating None type
         from downloading camera data :)'''
-        link = r'/home/adrian/Pulpit/GitHub_Public/Dectenion_face/save_data/xy.txt'
+        link = r'/home/adrian/Pulpit/GitHub_Public/Dectenion_face/save_data/array.txt'
         with open(link, 'w') as f:
             while True:
                 ret, frame = self.capture.get_frames()
@@ -77,8 +79,9 @@ class CameraStrem:
             if cv2.waitKey(1) & 0xFF == ord('a'):
                 break
 
+
 class CaptureAvi:
-    def __init__(self, camera=0):
+    def __init__(self, camera=CAMERA):
         self.capture = cv2.VideoCapture(camera)  # commit 2
         if not self.capture.isOpened():
             raise ValueError("Attention, video failed to open", camera)
@@ -130,6 +133,7 @@ class CaptureAvi:
         if self.capture.isOpened():
             self.capture.release()
 
+
 #  My commits:
 
 #  no 1:
@@ -138,5 +142,3 @@ class CaptureAvi:
 than one connected. By default, 0 is your primary. if I had two cameras, my index = 1'''
 
 #  no 2: define a video capture object
-
-
