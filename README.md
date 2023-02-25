@@ -5,11 +5,10 @@ Face detection is a computer technology used in many applications that identifie
 In the application, I wrote the **'Backend'** as well as the **'Frontend'** code on my own using appropriate programming libraries. 
 
 
-## Created by Adrian Szklarski, start time 02.2023
+## Created by Adrian Szklarski, 02.2023
 
 <br>
 <img src="images/app.png" alt="FaceDetection">
 <br>
 
-<p style="text-align: center">First preview version of the application (in progress) </p>
 
