@@ -7,7 +7,6 @@ import PIL.Image, PIL.ImageTk
 from datetime import datetime
 from module.mp4 import mp4
 
-
 class CameraStrem:
     def __init__(self, root, camera=0):
         self.root = root
@@ -28,11 +27,20 @@ class CameraStrem:
         self.get_set_window()
         self.get_save()
         self.update()
+        self.get_frame()
+
 
     def get_exit(self):
         webbrowser.open("http://127.0.0.1:5500/index.html")
         exit()
 
+    def get_frame(self):
+        '''ret, frame = self.capture.get_frames()
+        Data injection function for recording, eliminating None type
+        from downloading camera data :)'''
+        while True:
+            ret, frame = self.capture.get_frames()
+            return frame
 
     def get_set_window(self):
         '''Set window of *.*avi'''
@@ -59,15 +67,12 @@ class CameraStrem:
         '''Save video to *.*avi file'''
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         out = cv2.VideoWriter('avi/fecedetection.avi', fourcc, 20.0, (640, 480))
-
         while True:
-            ret, frame = self.capture.get_frames()
-            bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            out.write(bgr)
-            cv2.imshow('Streaming Video', bgr)
+            self.bgr = cv2.cvtColor(self.get_frame(), cv2.COLOR_BGR2RGB)
+            out.write(self.bgr)
+            cv2.imshow('Streaming Video', self.bgr)
             if cv2.waitKey(1) & 0xFF == ord('a'):
                 break
-
 
 class CaptureAvi:
     def __init__(self, camera=0):
@@ -130,4 +135,5 @@ class CaptureAvi:
 than one connected. By default, 0 is your primary. if I had two cameras, my index = 1'''
 
 #  no 2: define a video capture object
+
 
