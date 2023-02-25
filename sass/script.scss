@@ -62,7 +62,7 @@ nav {
 header {
     .hero-img {
         position: relative;
-        height: 100vh;
+        height: 94vh;
         background-image: url('../img/wallpaper_1920.jpg');
         background-position: center;
         background-size: cover;
@@ -87,13 +87,6 @@ header {
         color: c.$whit-color;
     }
 
-    .fa-brands {
-        margin-left: 1%;
-        color: c.$blue-color;
-        scale: 150%;
-        z-index: 3;
-    }
-
     .list {
         width: 50%;
         height: 50%;
@@ -103,11 +96,19 @@ header {
         margin-left: 9%;
     }
 
-    .foot {
-        margin-top: 5%;
-        margin-left: 35%;
-        font-size: 24px;
-        color: c.$blue-color;
+    .log2 {
+        height: 26vh;
+        margin-top: 87%;
+        margin-left: 9%;
     }
 }
 
+ /* foorer */
+ footer {
+    height: 40px;
+    line-height: 40px;
+    color: #ddd;
+    background-color: c.$foot-color;
+    text-align: center;
+    font-style: 20px;
+}

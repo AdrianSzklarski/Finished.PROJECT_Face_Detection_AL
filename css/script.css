@@ -51,7 +51,7 @@ nav .btn-search {
 
 header .hero-img {
   position: relative;
-  height: 100vh;
+  height: 94vh;
   background-image: url("../img/wallpaper_1920.jpg");
   background-position: center;
   background-size: cover;
@@ -72,12 +72,6 @@ header .hero-shadow .list {
   font-size: 14px;
   color: white;
 }
-header .fa-brands {
-  margin-left: 1%;
-  color: royalblue;
-  scale: 150%;
-  z-index: 3;
-}
 header .list {
   width: 50%;
   height: 50%;
@@ -85,9 +79,18 @@ header .list {
 header .log {
   margin-left: 9%;
 }
-header .foot {
-  margin-top: 5%;
-  margin-left: 35%;
-  font-size: 24px;
-  color: royalblue;
+header .log2 {
+  height: 26vh;
+  margin-top: 87%;
+  margin-left: 9%;
+}
+
+/* foorer */
+footer {
+  height: 40px;
+  line-height: 40px;
+  color: #ddd;
+  background-color: rgba(105, 77, 77, 0.9);
+  text-align: center;
+  font-style: 20px;
 }/*# sourceMappingURL=script.css.map */
